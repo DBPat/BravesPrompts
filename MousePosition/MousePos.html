@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Mouse Position Display</title>
+
+		<!-- add jQuery -->
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			crossorigin="anonymous">
+		</script>
+	</head>
+
+	<body>
+		<!-- Removed '#' from all id names
+		Added default values of 0 -->
+		<p>The mouse is located at position (<span id='xPos'>0</span>, <span id='yPos'>0</span>), and is <span id='dist'>0</span> pixels from the lower-left corner.</p>
+
+	</body>
+</html>
+
+<script>
+
+	// used fat arrow syntax for callback
+	$(document).mousemove(event => {
+		// added x and y decalrations
+		// change var to const
+		const pageHeight = $(document).height()
+		const x = event.pageX;
+		const y = pageHeight - event.pageY;
+
+		updateXY(x, y);
+		
+		// moved code to update #dist to updateDist function
+		updateDist(x, y);
+	});
+
+	// changed updateXY to accept x and y as parameters
+	function updateXY(x, y){
+		// removed x and y variable declarations
+		$("#xPos").text(x);
+		$("#yPos").text(y);
+	}
+
+	// created function to update #dist
+	function updateDist(x, y){
+		// limited distance decimal places to 2 digits
+		dist = Math.sqrt(x**2 + y**2).toFixed(2);
+		$("#dist").text(dist);
+	}
+
+</script>
