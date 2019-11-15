@@ -10,11 +10,11 @@ export default function BattingOutcomes(props) {
 
   const [batter, setBatter] = React.useState(outcomes[0])
 
-  console.log("Batting Outcones", outcomes[0])
 
   return (
-    <Container className="container">
+    <Container>
       <Text>Select a batter: {createDropdown()}</Text>
+      <h2>Player Batting Outcomes</h2>
       <Row>
         <Text>
           Singles: <span>{batter.Single || 0}</span>

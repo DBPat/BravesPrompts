@@ -1,7 +1,3 @@
-.container {
-
-}
-
 .dropdown {
   margin-left: 4px;
   padding-left: 4px;
@@ -12,5 +8,5 @@
 }
 
 .chart {
-  align-self: center;
+  display: initial;
 }
